@@ -1,6 +1,10 @@
 ion-title { font-family: 'Scheherazade New', serif; font-size: 22px; color: #c9a84c; }
 .filter-toolbar { --background: #0d1626; --border-color: transparent; --min-height: 52px; }
 
+ion-content {
+  --padding-bottom: 80px;
+}
+
 .tab-pills {
   display: flex; gap: 8px; padding: 8px 16px;
   .pill {
