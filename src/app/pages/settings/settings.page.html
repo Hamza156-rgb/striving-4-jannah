@@ -1,0 +1,89 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>الإعدادات</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <!-- App Branding -->
+  <div class="settings-hero">
+    <div class="app-logo">☪</div>
+    <div class="app-name">نور</div>
+    <div class="app-name-en">NOOR</div>
+    <div class="app-tagline">Your Islamic Companion</div>
+    <div class="app-version">Version 1.0.0</div>
+  </div>
+
+  <!-- Save Toast -->
+  <div class="save-toast" [class.visible]="saved">✓ Settings saved</div>
+
+  <!-- Translation Language -->
+  <div class="settings-section">
+    <div class="section-label">QURAN & HADITH LANGUAGE</div>
+    <div class="lang-grid">
+      <button class="lang-option"
+              *ngFor="let l of languages"
+              [class.selected]="settings.language === l.value"
+              (click)="setLanguage(l.value)">
+        <div class="lang-native">{{ l.native }}</div>
+        <div class="lang-label">{{ l.label }}</div>
+      </button>
+    </div>
+  </div>
+
+  <!-- Location Settings -->
+  <div class="settings-section">
+    <div class="section-label">PRAYER TIME LOCATION</div>
+    <div class="input-group">
+      <label class="input-label">City</label>
+      <input class="noor-input" [(ngModel)]="settings.city" placeholder="e.g. Lahore" />
+    </div>
+    <div class="input-group">
+      <label class="input-label">Country Code</label>
+      <input class="noor-input" [(ngModel)]="settings.country" placeholder="e.g. PK, SA, US, GB" />
+    </div>
+    <button class="save-btn" (click)="save()">Save Location</button>
+  </div>
+
+  <!-- Calculation Method -->
+  <div class="settings-section">
+    <div class="section-label">CALCULATION METHOD</div>
+    <div class="method-list">
+      <button class="method-option"
+              *ngFor="let m of methods"
+              [class.selected]="settings.calculationMethod === m.id"
+              (click)="setMethod(m.id)">
+        <span class="method-name">{{ m.name }}</span>
+        <span class="method-check" *ngIf="settings.calculationMethod === m.id">✓</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- About -->
+  <div class="settings-section">
+    <div class="section-label">ABOUT</div>
+    <div class="about-card">
+      <div class="about-row">
+        <span class="about-key">Quran API</span>
+        <span class="about-val">alquran.cloud</span>
+      </div>
+      <div class="about-row">
+        <span class="about-key">Prayer Times API</span>
+        <span class="about-val">aladhan.com</span>
+      </div>
+      <div class="about-row">
+        <span class="about-key">Hadith API</span>
+        <span class="about-val">hadithapi.com</span>
+      </div>
+      <div class="about-divider"></div>
+      <div class="dua-text">
+        اللَّهُمَّ انْفَعْنِي بِمَا عَلَّمْتَنِي وَعَلِّمْنِي مَا يَنْفَعُنِي
+      </div>
+      <div class="dua-translation">
+        O Allah, benefit me with what You have taught me, and teach me what will benefit me.
+      </div>
+    </div>
+  </div>
+
+  <div style="height: 32px;"></div>
+</ion-content>

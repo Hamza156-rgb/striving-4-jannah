@@ -1,0 +1,103 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      <span class="app-title">نور <span class="app-title-en">NOOR</span></span>
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="loadData($event)">
+    <ion-refresher-content pullingIcon="chevron-down" refreshingSpinner="crescent"></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Hero: Clock + Date + Hijri -->
+  <div class="hero-section pattern-bg">
+    <div class="hero-basmala">{{ basmala }}</div>
+    <div class="hero-time">{{ formattedTime }}</div>
+    <div class="hero-date">{{ formattedDate }}</div>
+    <div class="hero-hijri" *ngIf="hijriDate">
+      <span class="hijri-icon">☪</span> {{ hijriDate }}
+    </div>
+
+    <!-- Next Prayer Banner -->
+    <div class="next-prayer-banner" *ngIf="nextPrayer">
+      <div class="next-prayer-label">Next Prayer</div>
+      <div class="next-prayer-name">{{ nextPrayer.name }}</div>
+      <div class="next-prayer-time">{{ nextPrayer.time }}</div>
+      <div class="next-prayer-left">in {{ nextPrayer.timeLeft }}</div>
+    </div>
+  </div>
+
+  <!-- Today's Prayer Times -->
+  <div class="section-header">
+    <span class="section-ornament">✦</span>
+    <span class="section-title">Prayer Times</span>
+    <span class="section-ornament">✦</span>
+  </div>
+
+  <div class="prayer-grid" *ngIf="prayerTimes; else prayerLoading">
+    <div class="prayer-chip"
+         *ngFor="let p of getPrayerList()"
+         [class.active]="p.name === currentPrayer">
+      <div class="prayer-chip-icon">{{ prayerIcons[p.name] }}</div>
+      <div class="prayer-chip-name">{{ p.name }}</div>
+      <div class="prayer-chip-time">{{ p.time }}</div>
+    </div>
+  </div>
+
+  <ng-template #prayerLoading>
+    <div class="prayer-grid loading">
+      <div class="prayer-chip skeleton" *ngFor="let i of [1,2,3,4,5]">
+        <ion-skeleton-text animated style="height:14px;width:80%;border-radius:6px;"></ion-skeleton-text>
+      </div>
+    </div>
+  </ng-template>
+
+  <!-- Quick Access Surahs -->
+  <div class="section-header">
+    <span class="section-ornament">✦</span>
+    <span class="section-title">Quick Read</span>
+    <span class="section-ornament">✦</span>
+  </div>
+
+  <div class="quick-links">
+    <a class="quick-link-card" *ngFor="let link of quickLinks" [routerLink]="link.route">
+      <div class="quick-link-icon">{{ link.icon }}</div>
+      <div class="quick-link-label">{{ link.label }}</div>
+    </a>
+  </div>
+
+  <!-- Daily Verse -->
+  <div class="section-header" *ngIf="dailyVerse">
+    <span class="section-ornament">✦</span>
+    <span class="section-title">Verse of the Day</span>
+    <span class="section-ornament">✦</span>
+  </div>
+
+  <div class="noor-card daily-verse" *ngIf="dailyVerse">
+    <div class="verse-surah-badge">{{ dailyVerse.surahName }} • {{ dailyVerse.numberInSurah }}</div>
+    <div class="arabic-text arabic-large verse-arabic">{{ dailyVerse.text }}</div>
+    <div class="gold-divider"></div>
+    <div class="verse-translation">{{ dailyVerse.translation }}</div>
+  </div>
+
+  <!-- Daily Hadith -->
+  <div class="section-header" *ngIf="dailyHadith">
+    <span class="section-ornament">✦</span>
+    <span class="section-title">Hadith of the Day</span>
+    <span class="section-ornament">✦</span>
+  </div>
+
+  <div class="noor-card daily-hadith" *ngIf="dailyHadith">
+    <div class="hadith-book-badge">{{ dailyHadith.bookName }}</div>
+    <div class="arabic-text arabic-medium hadith-arabic" *ngIf="dailyHadith.hadithArabic">
+      {{ dailyHadith.hadithArabic }}
+    </div>
+    <div class="gold-divider"></div>
+    <div class="hadith-narrator">{{ dailyHadith.englishNarrator }}</div>
+    <div class="hadith-text">{{ dailyHadith.hadithEnglish }}</div>
+  </div>
+
+  <div style="height:24px"></div>
+</ion-content>

@@ -1,0 +1,73 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>الحديث الشريف</ion-title>
+  </ion-toolbar>
+  <ion-toolbar class="lang-toolbar">
+    <ion-segment value="english" (ionChange)="setLanguage($event)">
+      <ion-segment-button value="english"><ion-label>English</ion-label></ion-segment-button>
+      <ion-segment-button value="arabic"><ion-label>عربي</ion-label></ion-segment-button>
+      <ion-segment-button value="urdu"><ion-label>اردو</ion-label></ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="loadRandom($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Books Banner -->
+  <div class="books-scroll">
+    <div class="book-pill" *ngFor="let b of books">
+      <div class="book-pill-arabic">{{ b.arabicName }}</div>
+      <div class="book-pill-name">{{ b.name }}</div>
+      <div class="book-pill-count">{{ b.count }}</div>
+    </div>
+  </div>
+
+  <!-- Load Random Button -->
+  <div class="random-btn-wrap">
+    <button class="random-btn" (click)="loadRandom()" [disabled]="loadingRandom">
+      <ion-spinner *ngIf="loadingRandom" name="crescent"></ion-spinner>
+      <span *ngIf="!loadingRandom">🎲 Load Random Hadith</span>
+    </button>
+  </div>
+
+  <!-- Loading -->
+  <div class="loading-wrap" *ngIf="loading">
+    <ion-spinner name="crescent"></ion-spinner>
+  </div>
+
+  <!-- Hadith Cards -->
+  <div class="hadith-list" *ngIf="!loading">
+    <div class="hadith-card" *ngFor="let h of hadiths">
+      <!-- Header -->
+      <div class="hadith-card-header">
+        <div class="hadith-book">{{ h.bookName }}</div>
+        <div class="hadith-num"># {{ h.hadithNumber }}</div>
+      </div>
+
+      <!-- Chapter -->
+      <div class="hadith-chapter" *ngIf="h.chapterName">📂 {{ h.chapterName }}</div>
+
+      <!-- Arabic text always shown -->
+      <div class="hadith-arabic-text" *ngIf="h.hadithArabic">
+        {{ h.hadithArabic }}
+      </div>
+
+      <div class="hadith-divider"></div>
+
+      <!-- Narrator -->
+      <div class="hadith-narrator">{{ h.englishNarrator }}</div>
+
+      <!-- Translation text based on language -->
+      <div class="hadith-translation"
+           [class.rtl-text]="isRtl()"
+           [class.urdu-font]="language==='urdu'">
+        {{ getHadithText(h) }}
+      </div>
+    </div>
+  </div>
+
+  <div style="height:24px"></div>
+</ion-content>

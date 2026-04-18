@@ -1,0 +1,267 @@
+/* ========== HOME PAGE ========== */
+.app-title {
+  font-family: 'Scheherazade New', serif;
+  color: #c9a84c;
+  font-size: 22px;
+  .app-title-en {
+    font-family: 'Cinzel', serif;
+    font-size: 14px;
+    letter-spacing: 3px;
+    margin-left: 8px;
+    opacity: 0.8;
+  }
+}
+
+/* Hero */
+.hero-section {
+  background: linear-gradient(180deg, #080c18 0%, #0d1626 60%, #0a0e1a 100%);
+  padding: 30px 20px 24px;
+  text-align: center;
+  position: relative;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-image: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.hero-basmala {
+  font-family: 'Scheherazade New', serif;
+  font-size: 20px;
+  color: rgba(201,168,76,0.7);
+  margin-bottom: 16px;
+  direction: rtl;
+  letter-spacing: 2px;
+}
+
+.hero-time {
+  font-family: 'Cinzel', serif;
+  font-size: 52px;
+  font-weight: 600;
+  color: #f0e8d5;
+  line-height: 1;
+  letter-spacing: 2px;
+  text-shadow: 0 0 40px rgba(201,168,76,0.3);
+}
+
+.hero-date {
+  font-family: 'Lato', sans-serif;
+  font-size: 13px;
+  color: #9aafcc;
+  margin-top: 8px;
+  letter-spacing: 0.5px;
+}
+
+.hero-hijri {
+  font-size: 13px;
+  color: #c9a84c;
+  margin-top: 6px;
+  .hijri-icon { margin-right: 4px; }
+}
+
+.next-prayer-banner {
+  background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.05));
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 14px;
+  padding: 14px 20px;
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(8px);
+
+  .next-prayer-label {
+    font-size: 11px;
+    color: #9aafcc;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .next-prayer-name {
+    font-family: 'Cinzel', serif;
+    font-size: 18px;
+    color: #c9a84c;
+    font-weight: 600;
+  }
+  .next-prayer-time {
+    font-size: 16px;
+    color: #f0e8d5;
+    font-weight: 700;
+  }
+  .next-prayer-left {
+    font-size: 12px;
+    color: #25c79a;
+    background: rgba(37,199,154,0.1);
+    border: 1px solid rgba(37,199,154,0.3);
+    border-radius: 20px;
+    padding: 3px 10px;
+  }
+}
+
+/* Section Header */
+.section-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 20px 16px 10px;
+  .section-ornament { color: #c9a84c; opacity: 0.6; font-size: 10px; }
+  .section-title {
+    font-family: 'Cinzel', serif;
+    font-size: 13px;
+    color: #9aafcc;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+}
+
+/* Prayer Grid */
+.prayer-grid {
+  display: flex;
+  overflow-x: auto;
+  gap: 10px;
+  padding: 4px 16px 12px;
+  scrollbar-width: none;
+  &::-webkit-scrollbar { display: none; }
+}
+
+.prayer-chip {
+  flex-shrink: 0;
+  background: linear-gradient(145deg, #162033, #1e2d45);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 14px;
+  padding: 14px 16px;
+  text-align: center;
+  min-width: 90px;
+  transition: all 0.3s ease;
+
+  &.active {
+    background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.08));
+    border-color: rgba(201,168,76,0.5);
+    box-shadow: 0 0 20px rgba(201,168,76,0.15);
+  }
+
+  .prayer-chip-icon { font-size: 20px; margin-bottom: 6px; }
+  .prayer-chip-name { font-size: 11px; color: #9aafcc; font-weight: 600; letter-spacing: 0.5px; }
+  .prayer-chip-time { font-size: 14px; color: #f0e8d5; font-weight: 700; margin-top: 4px; font-family: 'Lato', sans-serif; }
+
+  &.active .prayer-chip-time { color: #c9a84c; }
+}
+
+/* Quick Links */
+.quick-links {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  padding: 4px 16px 12px;
+}
+
+.quick-link-card {
+  background: linear-gradient(145deg, #162033, #1e2d45);
+  border: 1px solid rgba(201,168,76,0.15);
+  border-radius: 14px;
+  padding: 14px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s ease;
+
+  &:active { transform: scale(0.96); opacity: 0.8; }
+
+  .quick-link-icon { font-size: 22px; }
+  .quick-link-label {
+    font-size: 10px;
+    color: #9aafcc;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+  }
+}
+
+/* Cards */
+.noor-card {
+  background: linear-gradient(145deg, #162033, #1e2d45);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 8px 16px;
+  position: relative;
+  overflow: hidden;
+  &::before {
+    content: '';
+    position: absolute; top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #c9a84c, #e8c97a, #c9a84c);
+    opacity: 0.5;
+  }
+}
+
+.daily-verse {
+  .verse-surah-badge {
+    font-size: 11px; color: #c9a84c; text-transform: uppercase;
+    letter-spacing: 1.5px; margin-bottom: 12px;
+    font-family: 'Cinzel', serif;
+  }
+  .verse-arabic {
+    font-family: 'Scheherazade New', serif;
+    font-size: 26px;
+    color: #e8c97a;
+    direction: rtl;
+    text-align: right;
+    line-height: 2.2;
+    margin-bottom: 12px;
+  }
+  .verse-translation {
+    font-size: 14px;
+    color: #9aafcc;
+    line-height: 1.7;
+    font-style: italic;
+  }
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+    margin: 12px 0;
+  }
+}
+
+.daily-hadith {
+  .hadith-book-badge {
+    font-size: 11px;
+    color: #25c79a;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-bottom: 12px;
+    font-family: 'Cinzel', serif;
+  }
+  .hadith-arabic {
+    font-family: 'Scheherazade New', serif;
+    font-size: 20px;
+    color: #e8c97a;
+    direction: rtl;
+    text-align: right;
+    line-height: 2;
+    margin-bottom: 12px;
+  }
+  .gold-divider {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,168,76,0.4), transparent);
+    margin: 12px 0;
+  }
+  .hadith-narrator {
+    font-size: 12px;
+    color: #c9a84c;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+  .hadith-text {
+    font-size: 14px;
+    color: #9aafcc;
+    line-height: 1.7;
+  }
+}

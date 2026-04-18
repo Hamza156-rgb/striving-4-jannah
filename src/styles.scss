@@ -1,0 +1,358 @@
+/* ========================================
+   NOOR APP - GLOBAL STYLES
+   Islamic Mobile Application
+   ======================================== */
+
+/* Ionic Core CSS */
+@import "@ionic/angular/css/core.css";
+@import "@ionic/angular/css/normalize.css";
+@import "@ionic/angular/css/structure.css";
+@import "@ionic/angular/css/typography.css";
+
+/* ========================================
+   CSS CUSTOM PROPERTIES - ISLAMIC PALETTE
+   ======================================== */
+:root {
+  /* Primary Colors - Deep Emerald & Gold */
+  --noor-bg-primary: #0a0e1a;
+  --noor-bg-secondary: #111827;
+  --noor-bg-card: #162033;
+  --noor-bg-elevated: #1e2d45;
+
+  /* Gold Accent */
+  --noor-gold: #c9a84c;
+  --noor-gold-light: #e8c97a;
+  --noor-gold-dark: #9b7d35;
+  --noor-gold-glow: rgba(201, 168, 76, 0.3);
+
+  /* Emerald Accent */
+  --noor-emerald: #1a8a6b;
+  --noor-emerald-light: #25c79a;
+  --noor-emerald-dark: #0f5c46;
+  --noor-emerald-glow: rgba(26, 138, 107, 0.3);
+
+  /* Text */
+  --noor-text-primary: #f0e8d5;
+  --noor-text-secondary: #9aafcc;
+  --noor-text-muted: #506480;
+  --noor-text-arabic: #e8c97a;
+
+  /* Borders */
+  --noor-border: rgba(201, 168, 76, 0.2);
+  --noor-border-light: rgba(201, 168, 76, 0.08);
+
+  /* Gradients */
+  --noor-gradient-hero: linear-gradient(135deg, #0a0e1a 0%, #0f1e35 50%, #0a1628 100%);
+  --noor-gradient-gold: linear-gradient(135deg, #c9a84c, #e8c97a, #c9a84c);
+  --noor-gradient-emerald: linear-gradient(135deg, #0f5c46, #1a8a6b, #25c79a);
+  --noor-gradient-card: linear-gradient(145deg, #162033, #1e2d45);
+
+  /* Shadows */
+  --noor-shadow-gold: 0 0 30px rgba(201, 168, 76, 0.2);
+  --noor-shadow-card: 0 8px 32px rgba(0, 0, 0, 0.4);
+
+  /* Typography */
+  --font-arabic: 'Scheherazade New', 'Amiri', serif;
+  --font-heading: 'Cinzel', serif;
+  --font-body: 'Lato', sans-serif;
+
+  /* Ionic Overrides */
+  --ion-background-color: var(--noor-bg-primary);
+  --ion-text-color: var(--noor-text-primary);
+  --ion-toolbar-background: var(--noor-bg-secondary);
+  --ion-tab-bar-background: var(--noor-bg-secondary);
+  --ion-tab-bar-border-color: var(--noor-border);
+  --ion-item-background: var(--noor-bg-card);
+  --ion-card-background: var(--noor-bg-card);
+  --ion-font-family: var(--font-body);
+}
+
+/* ========================================
+   GLOBAL RESET & BASE
+   ======================================== */
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--noor-bg-primary);
+  color: var(--noor-text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ========================================
+   SCROLLBAR STYLING
+   ======================================== */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: var(--noor-bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--noor-gold-dark);
+  border-radius: 2px;
+}
+
+/* ========================================
+   ARABIC TEXT
+   ======================================== */
+.arabic-text {
+  font-family: var(--font-arabic);
+  direction: rtl;
+  text-align: right;
+  color: var(--noor-text-arabic);
+  line-height: 2.2;
+  letter-spacing: 0.02em;
+}
+
+.arabic-large {
+  font-size: 28px;
+  line-height: 2.5;
+}
+
+.arabic-medium {
+  font-size: 22px;
+}
+
+.arabic-small {
+  font-size: 18px;
+}
+
+/* ========================================
+   GOLDEN DECORATIVE ELEMENTS
+   ======================================== */
+.gold-divider {
+  height: 1px;
+  background: var(--noor-gradient-gold);
+  opacity: 0.4;
+  margin: 16px 0;
+}
+
+.gold-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--noor-gold);
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.ornament {
+  text-align: center;
+  color: var(--noor-gold);
+  font-size: 20px;
+  opacity: 0.7;
+  margin: 8px 0;
+  letter-spacing: 8px;
+}
+
+/* ========================================
+   NOOR CARD COMPONENT
+   ======================================== */
+.noor-card {
+  background: var(--noor-gradient-card);
+  border: 1px solid var(--noor-border);
+  border-radius: 16px;
+  padding: 20px;
+  margin: 12px 16px;
+  box-shadow: var(--noor-shadow-card);
+  position: relative;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: var(--noor-gradient-gold);
+    opacity: 0.6;
+  }
+}
+
+.noor-card-gold {
+  background: linear-gradient(145deg, #1a1500, #2a2000);
+  border-color: rgba(201, 168, 76, 0.4);
+}
+
+.noor-card-emerald {
+  background: linear-gradient(145deg, #001a13, #00291e);
+  border-color: rgba(26, 138, 107, 0.4);
+}
+
+/* ========================================
+   IONIC COMPONENT OVERRIDES
+   ======================================== */
+ion-tab-bar {
+  --background: #0d1626;
+  border-top: 1px solid var(--noor-border);
+  padding-bottom: env(safe-area-inset-bottom);
+  height: 65px;
+}
+
+ion-tab-button {
+  --color: var(--noor-text-muted);
+  --color-selected: var(--noor-gold);
+
+  &.tab-selected {
+    ion-label {
+      color: var(--noor-gold);
+    }
+    ion-icon {
+      color: var(--noor-gold);
+    }
+  }
+}
+
+ion-toolbar {
+  --background: linear-gradient(180deg, #0d1626 0%, #111827 100%);
+  --border-color: var(--noor-border);
+  --border-width: 0 0 1px 0;
+  --min-height: 60px;
+}
+
+ion-title {
+  font-family: var(--font-heading);
+  color: var(--noor-gold);
+  font-size: 18px;
+  letter-spacing: 1px;
+}
+
+ion-content {
+  --background: var(--noor-bg-primary);
+}
+
+ion-refresher {
+  --color: var(--noor-gold);
+}
+
+ion-spinner {
+  --color: var(--noor-gold);
+}
+
+ion-segment {
+  --background: var(--noor-bg-card);
+  border: 1px solid var(--noor-border);
+  border-radius: 12px;
+  padding: 4px;
+  margin: 0 16px;
+}
+
+ion-segment-button {
+  --background-checked: var(--noor-gold);
+  --color-checked: #0a0e1a;
+  --color: var(--noor-text-secondary);
+  --border-radius: 10px;
+  font-family: var(--font-body);
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: none;
+  min-height: 36px;
+}
+
+ion-searchbar {
+  --background: var(--noor-bg-card);
+  --border-radius: 12px;
+  --box-shadow: none;
+  --color: var(--noor-text-primary);
+  --icon-color: var(--noor-gold);
+  --placeholder-color: var(--noor-text-muted);
+  border: 1px solid var(--noor-border);
+  border-radius: 12px;
+  margin: 0 16px;
+}
+
+ion-skeleton-text {
+  --background: var(--noor-bg-elevated);
+  --background-rgb: 30, 45, 69;
+}
+
+/* ========================================
+   LOADING ANIMATION
+   ======================================== */
+@keyframes pulse-gold {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.loading-shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--noor-bg-card) 25%,
+    var(--noor-bg-elevated) 50%,
+    var(--noor-bg-card) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 1.5s infinite;
+  border-radius: 8px;
+}
+
+.fade-in-up {
+  animation: fadeInUp 0.5s ease forwards;
+}
+
+/* ========================================
+   UTILITY CLASSES
+   ======================================== */
+.text-gold { color: var(--noor-gold); }
+.text-emerald { color: var(--noor-emerald-light); }
+.text-muted { color: var(--noor-text-muted); }
+.text-secondary { color: var(--noor-text-secondary); }
+
+.font-heading { font-family: var(--font-heading); }
+.font-arabic { font-family: var(--font-arabic); }
+
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+.mt-8 { margin-top: 8px; }
+.mt-16 { margin-top: 16px; }
+.mb-8 { margin-bottom: 8px; }
+.mb-16 { margin-bottom: 16px; }
+
+.p-16 { padding: 16px; }
+
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.items-center { align-items: center; }
+.justify-between { justify-content: space-between; }
+.gap-8 { gap: 8px; }
+.gap-16 { gap: 16px; }
+
+/* Islamic geometric pattern background */
+.pattern-bg {
+  position: relative;
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(201,168,76,0.05) 1px, transparent 0);
+    background-size: 24px 24px;
+    pointer-events: none;
+  }
+}

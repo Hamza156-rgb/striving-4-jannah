@@ -1,0 +1,121 @@
+ion-title { font-family: 'Scheherazade New', serif; font-size: 22px; color: #c9a84c; }
+
+.clock-hero {
+  background: linear-gradient(180deg, #080c18 0%, #0d1626 100%);
+  padding: 28px 20px 20px; text-align: center;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+  position: relative;
+  &::before {
+    content: ''; position: absolute; inset: 0;
+    background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.1) 0%, transparent 70%);
+    pointer-events: none;
+  }
+}
+
+.clock-time {
+  font-family: 'Cinzel', serif; font-size: 44px; font-weight: 600;
+  color: #f0e8d5; letter-spacing: 2px;
+  text-shadow: 0 0 40px rgba(201,168,76,0.25);
+}
+
+.clock-date { font-size: 13px; color: #9aafcc; margin-top: 6px; }
+.clock-hijri { font-size: 13px; color: #c9a84c; margin-top: 4px; }
+.clock-location { font-size: 12px; color: #506480; margin-top: 4px; }
+
+.next-prayer-card {
+  display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.05));
+  border: 1px solid rgba(201,168,76,0.3); border-radius: 14px;
+  padding: 14px 18px; margin-top: 18px;
+  .np-label { font-size: 10px; color: #9aafcc; text-transform: uppercase; letter-spacing: 1px; }
+  .np-name { font-family: 'Cinzel', serif; font-size: 18px; color: #c9a84c; font-weight: 600; }
+  .np-time { font-size: 16px; color: #f0e8d5; font-weight: 700; }
+  .np-left {
+    font-size: 12px; color: #25c79a; background: rgba(37,199,154,0.1);
+    border: 1px solid rgba(37,199,154,0.3); border-radius: 20px; padding: 3px 10px;
+  }
+}
+
+.controls-section { padding: 16px; }
+.ctrl-row { display: flex; gap: 8px; margin-bottom: 10px; }
+
+.noor-input {
+  flex: 1; padding: 10px 12px; border-radius: 10px;
+  background: #162033; border: 1px solid rgba(201,168,76,0.2);
+  color: #f0e8d5; font-size: 13px; font-family: 'Lato', sans-serif;
+  outline: none;
+  &::placeholder { color: #506480; }
+  &:focus { border-color: rgba(201,168,76,0.5); }
+}
+
+.ctrl-btn {
+  padding: 10px 16px; border-radius: 10px; cursor: pointer; transition: all 0.2s;
+  border: 1px solid rgba(201,168,76,0.3); font-weight: 600; font-family: 'Lato', sans-serif;
+}
+
+.search-btn { background: rgba(201,168,76,0.15); color: #c9a84c; }
+
+.gps-btn {
+  width: 100%; padding: 12px; border-radius: 10px; cursor: pointer;
+  background: rgba(37,199,154,0.1); border: 1px solid rgba(37,199,154,0.3);
+  color: #25c79a; font-size: 13px; font-weight: 600;
+  font-family: 'Lato', sans-serif; transition: all 0.2s;
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  &:disabled { opacity: 0.6; }
+}
+
+.error-msg { font-size: 12px; color: #e07a5f; margin-top: 8px; }
+
+.loading-center { display: flex; flex-direction: column; align-items: center; padding: 40px; gap: 16px; }
+.loading-center p { color: #9aafcc; font-size: 14px; }
+
+.prayer-times-list { padding: 0 16px; display: flex; flex-direction: column; gap: 8px; }
+
+.prayer-row {
+  display: flex; align-items: center; justify-content: space-between;
+  background: linear-gradient(145deg, #162033, #1e2d45);
+  border: 1px solid rgba(201,168,76,0.1); border-radius: 14px; padding: 14px 16px;
+  transition: all 0.3s;
+  &.active { background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05)); border-color: rgba(201,168,76,0.4); box-shadow: 0 0 20px rgba(201,168,76,0.1); }
+  &.next { border-color: rgba(37,199,154,0.3); }
+}
+
+.prayer-row-left { display: flex; align-items: center; gap: 14px; }
+.prayer-icon { font-size: 24px; }
+.prayer-name-en { font-size: 16px; color: #f0e8d5; font-weight: 600; }
+.prayer-name-ar { font-family: 'Scheherazade New', serif; font-size: 16px; color: #9aafcc; direction: rtl; }
+.prayer-row-right { display: flex; align-items: center; gap: 8px; }
+.prayer-time-display { font-size: 18px; font-weight: 700; font-family: 'Cinzel', serif; }
+
+.prayer-badge {
+  font-size: 10px; padding: 3px 8px; border-radius: 20px; font-weight: 600; text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+.active-badge { background: rgba(201,168,76,0.2); color: #c9a84c; border: 1px solid rgba(201,168,76,0.4); }
+.next-badge { background: rgba(37,199,154,0.1); color: #25c79a; border: 1px solid rgba(37,199,154,0.3); }
+
+.method-section { padding: 16px; }
+.method-label { font-size: 11px; color: #9aafcc; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 8px; }
+
+.noor-select {
+  width: 100%; padding: 10px 12px; border-radius: 10px;
+  background: #162033; border: 1px solid rgba(201,168,76,0.2);
+  color: #f0e8d5; font-size: 13px; font-family: 'Lato', sans-serif; outline: none;
+  option { background: #162033; }
+}
+
+.dhikr-section { padding: 16px; }
+.dhikr-title {
+  font-family: 'Scheherazade New', serif; font-size: 22px; color: #c9a84c;
+  text-align: center; direction: rtl; margin-bottom: 14px;
+}
+
+.dhikr-card {
+  background: linear-gradient(145deg, #162033, #1e2d45);
+  border: 1px solid rgba(201,168,76,0.12); border-radius: 12px;
+  padding: 14px 16px; margin-bottom: 8px;
+  display: flex; align-items: center; justify-content: space-between;
+  .dhikr-arabic { font-family: 'Scheherazade New', serif; font-size: 18px; color: #e8c97a; direction: rtl; }
+  .dhikr-translation { font-size: 12px; color: #9aafcc; flex: 1; text-align: center; }
+  .dhikr-count { font-size: 13px; color: #c9a84c; font-weight: 700; }
+}

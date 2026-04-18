@@ -1,0 +1,71 @@
+.reader-title { font-family: 'Cinzel', serif; font-size: 16px; display: block; }
+.reader-arabic-title { font-family: 'Scheherazade New', serif; font-size: 14px; color: #c9a84c; display: block; }
+.lang-toolbar { --background: #0d1626; --min-height: 56px; padding: 8px 0; }
+
+.reader-controls {
+  display: flex; gap: 8px; padding: 10px 16px; background: #0d1626;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+  .ctrl-btn {
+    padding: 6px 14px; border-radius: 8px; border: 1px solid rgba(201,168,76,0.25);
+    background: #162033; color: #c9a84c; font-size: 12px; font-weight: 700;
+    cursor: pointer; transition: all 0.2s;
+    &:active { background: rgba(201,168,76,0.15); }
+  }
+  .trans-btn { margin-left: auto; color: #25c79a; border-color: rgba(37,199,154,0.3); }
+}
+
+.surah-banner {
+  text-align: center; padding: 24px 20px 20px;
+  background: linear-gradient(180deg, #0d1626, #0a0e1a);
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+
+  .surah-banner-name {
+    font-family: 'Scheherazade New', serif; font-size: 36px; color: #e8c97a;
+    direction: rtl; margin-bottom: 8px;
+  }
+  .surah-banner-english { font-family: 'Cinzel', serif; font-size: 14px; color: #f0e8d5; letter-spacing: 1px; }
+  .surah-banner-meta {
+    font-size: 12px; color: #9aafcc; margin-top: 6px;
+    text-transform: uppercase; letter-spacing: 1px;
+  }
+  .bismillah {
+    font-family: 'Scheherazade New', serif; font-size: 24px; color: #c9a84c;
+    direction: rtl; margin-top: 16px; padding-top: 16px;
+    border-top: 1px solid rgba(201,168,76,0.2);
+  }
+}
+
+.ayah-list { padding: 8px 0; }
+
+.ayah-card {
+  display: flex; gap: 14px; padding: 18px 16px;
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+  align-items: flex-start;
+}
+
+.ayah-number {
+  width: 34px; height: 34px; flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05));
+  border: 1px solid rgba(201,168,76,0.25); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  span { font-size: 12px; font-weight: 700; color: #c9a84c; }
+}
+
+.ayah-content { flex: 1; }
+
+.ayah-arabic {
+  font-family: 'Scheherazade New', serif;
+  color: #f0e8d5; direction: rtl; text-align: right; line-height: 2.2;
+}
+
+.ayah-divider {
+  height: 1px; background: linear-gradient(90deg, transparent, rgba(201,168,76,0.25), transparent);
+  margin: 10px 0;
+}
+
+.ayah-translation {
+  font-size: 13px; color: #9aafcc; line-height: 1.7;
+  &.urdu { font-family: 'Scheherazade New', serif; direction: rtl; text-align: right; font-size: 15px; }
+}
+
+.ayah-skeleton { padding: 16px; border-bottom: 1px solid rgba(201,168,76,0.08); }

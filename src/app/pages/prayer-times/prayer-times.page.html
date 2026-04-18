@@ -1,0 +1,90 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>أوقات الصلاة</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher slot="fixed" (ionRefresh)="loadByCity($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <!-- Clock Hero -->
+  <div class="clock-hero">
+    <div class="clock-time">{{ formattedTime }}</div>
+    <div class="clock-date" *ngIf="prayerTimes">{{ prayerTimes.date }}</div>
+    <div class="clock-hijri" *ngIf="prayerTimes?.hijriDate">☪ {{ prayerTimes.hijriDate }}</div>
+    <div class="clock-location" *ngIf="prayerTimes">📍 {{ prayerTimes.location }}</div>
+
+    <!-- Next Prayer -->
+    <div class="next-prayer-card" *ngIf="nextPrayer">
+      <div class="np-label">Next Prayer</div>
+      <div class="np-name">{{ nextPrayer.name }}</div>
+      <div class="np-time">{{ nextPrayer.time }}</div>
+      <div class="np-left">{{ nextPrayer.timeLeft }}</div>
+    </div>
+  </div>
+
+  <!-- Location Controls -->
+  <div class="controls-section">
+    <div class="ctrl-row">
+      <input class="noor-input" [(ngModel)]="city" placeholder="City" />
+      <input class="noor-input" [(ngModel)]="country" placeholder="Country Code (e.g. PK)" />
+      <button class="ctrl-btn search-btn" (click)="updateCity()">Go</button>
+    </div>
+    <button class="gps-btn" (click)="loadByGPS()" [disabled]="locationLoading">
+      <ion-spinner *ngIf="locationLoading" name="crescent" style="width:16px;height:16px;"></ion-spinner>
+      <span *ngIf="!locationLoading">📍 Use My Location</span>
+    </button>
+    <div class="error-msg" *ngIf="error">{{ error }}</div>
+  </div>
+
+  <!-- Loading -->
+  <div class="loading-center" *ngIf="loading">
+    <ion-spinner name="crescent"></ion-spinner>
+    <p>Loading prayer times...</p>
+  </div>
+
+  <!-- Prayer Times List -->
+  <div class="prayer-times-list" *ngIf="!loading && prayerTimes">
+    <div class="prayer-row"
+         *ngFor="let pc of prayerConfig"
+         [class.active]="isActive(pc.key)"
+         [class.next]="isNext(pc.key)">
+      <div class="prayer-row-left">
+        <div class="prayer-icon">{{ pc.icon }}</div>
+        <div class="prayer-names">
+          <div class="prayer-name-en">{{ pc.key }}</div>
+          <div class="prayer-name-ar">{{ pc.arabic }}</div>
+        </div>
+      </div>
+      <div class="prayer-row-right">
+        <div class="prayer-time-display" [style.color]="isActive(pc.key) ? '#c9a84c' : '#f0e8d5'">
+          {{ getPrayerTime(pc.key) }}
+        </div>
+        <div class="prayer-badge active-badge" *ngIf="isActive(pc.key)">Now</div>
+        <div class="prayer-badge next-badge" *ngIf="isNext(pc.key)">Next</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calculation Method -->
+  <div class="method-section" *ngIf="!loading">
+    <div class="method-label">Calculation Method</div>
+    <select class="noor-select" [(ngModel)]="selectedMethod" (change)="updateMethod()">
+      <option *ngFor="let m of methods" [value]="m.id">{{ m.name }}</option>
+    </select>
+  </div>
+
+  <!-- Dhikr Section -->
+  <div class="dhikr-section">
+    <div class="dhikr-title">أذكار بعد الصلاة</div>
+    <div class="dhikr-card" *ngFor="let d of dhikrList">
+      <div class="dhikr-arabic">{{ d.arabic }}</div>
+      <div class="dhikr-translation">{{ d.english }}</div>
+      <div class="dhikr-count">× {{ d.count }}</div>
+    </div>
+  </div>
+
+  <div style="height:24px"></div>
+</ion-content>

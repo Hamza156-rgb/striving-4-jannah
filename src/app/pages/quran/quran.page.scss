@@ -1,0 +1,52 @@
+ion-title { font-family: 'Scheherazade New', serif; font-size: 22px; color: #c9a84c; }
+.filter-toolbar { --background: #0d1626; --border-color: transparent; --min-height: 52px; }
+
+.tab-pills {
+  display: flex; gap: 8px; padding: 8px 16px;
+  .pill {
+    flex: 1; padding: 8px 0; border-radius: 20px;
+    background: #162033; border: 1px solid rgba(201,168,76,0.15);
+    color: #9aafcc; font-size: 12px; font-weight: 600;
+    font-family: 'Lato', sans-serif; letter-spacing: 0.5px;
+    cursor: pointer; transition: all 0.2s;
+    &.active { background: linear-gradient(135deg, #c9a84c, #e8c97a); color: #0a0e1a; border-color: transparent; }
+  }
+}
+
+.surah-list { padding: 8px 0; }
+
+.surah-item {
+  display: flex; align-items: center; gap: 14px;
+  padding: 14px 16px; text-decoration: none;
+  border-bottom: 1px solid rgba(201,168,76,0.08);
+  transition: background 0.2s;
+  &:active { background: rgba(201,168,76,0.05); }
+}
+
+.surah-number-badge {
+  width: 40px; height: 40px; border-radius: 50%; flex-shrink: 0;
+  background: linear-gradient(135deg, rgba(201,168,76,0.2), rgba(201,168,76,0.05));
+  border: 1px solid rgba(201,168,76,0.3);
+  display: flex; align-items: center; justify-content: center;
+  .num { font-size: 14px; font-weight: 700; color: #c9a84c; font-family: 'Cinzel', serif; }
+}
+
+.surah-info { flex: 1; min-width: 0; }
+.surah-english { font-size: 16px; color: #f0e8d5; font-weight: 600; }
+.surah-translation { font-size: 12px; color: #9aafcc; margin-top: 2px; }
+.surah-meta { display: flex; gap: 8px; margin-top: 5px; align-items: center; }
+.revelation-type {
+  font-size: 10px; padding: 2px 8px; border-radius: 10px;
+  color: #25c79a; background: rgba(37,199,154,0.12);
+  border: 1px solid rgba(37,199,154,0.25); text-transform: uppercase; letter-spacing: 0.5px;
+  &.meccan { color: #c9a84c; background: rgba(201,168,76,0.1); border-color: rgba(201,168,76,0.25); }
+}
+.ayah-count { font-size: 10px; color: #506480; }
+.surah-arabic-name { font-family: 'Scheherazade New', serif; font-size: 22px; color: #e8c97a; direction: rtl; }
+
+.skeleton { pointer-events: none; }
+.skeleton-text { flex: 1; }
+
+.empty-state { text-align: center; padding: 60px 16px; }
+.empty-icon { font-size: 40px; margin-bottom: 12px; }
+.empty-text { color: #506480; font-size: 14px; }
