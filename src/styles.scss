@@ -188,10 +188,6 @@ html, body {
 /* ========================================
    IONIC COMPONENT OVERRIDES
    ======================================== */
-ion-tab-bar {
-  --background: #0d1626;
-  border-top: 1px solid var(--noor-border);
-}
 
 ion-tab-button {
   --color: var(--noor-text-muted);
@@ -208,21 +204,37 @@ ion-tab-button {
 }
 
 ion-toolbar {
-  --background: linear-gradient(180deg, #0d1626 0%, #111827 100%);
-  --border-color: var(--noor-border);
+  --background: #0d1626;
+  --border-color: rgba(201,168,76,0.18);
   --border-width: 0 0 1px 0;
-  --min-height: 60px;
+  --min-height: 44px;
+  padding: 6px 12px;
 }
 
 ion-title {
   font-family: var(--font-heading);
   color: var(--noor-gold);
-  font-size: 18px;
+  font-size: 13px;
   letter-spacing: 1px;
 }
 
 ion-content {
   --background: var(--noor-bg-primary);
+}
+
+ion-searchbar {
+  --background: #162033;
+  --border-radius: 8px;
+  --color: #506480;
+  --placeholder-color: #506480;
+  --icon-color: #c9a84c;
+  --clear-icon-color: #9aafcc;
+}
+
+ion-searchbar::part(clear-button) {
+  --color: #9aafcc;
+  --background: transparent;
+  font-size: 16px;
 }
 
 ion-refresher {
@@ -253,17 +265,6 @@ ion-segment-button {
   min-height: 36px;
 }
 
-ion-searchbar {
-  --background: var(--noor-bg-card);
-  --border-radius: 12px;
-  --box-shadow: none;
-  --color: var(--noor-text-primary);
-  --icon-color: var(--noor-gold);
-  --placeholder-color: var(--noor-text-muted);
-  border: 1px solid var(--noor-border);
-  border-radius: 12px;
-  margin: 0 16px;
-}
 
 ion-skeleton-text {
   --background: var(--noor-bg-elevated);

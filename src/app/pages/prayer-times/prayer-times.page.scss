@@ -1,13 +1,13 @@
-ion-title { font-family: 'Scheherazade New', serif; font-size: 22px; color: #c9a84c; }
+ion-title { font-family: 'Amiri', serif; font-size: 15px; color: #c9a84c; }
 
 ion-content {
-  --padding-bottom: 80px;
+  --padding-bottom: 60px;
 }
 
 .clock-hero {
-  background: linear-gradient(180deg, #080c18 0%, #0d1626 100%);
-  padding: 28px 20px 20px; text-align: center;
-  border-bottom: 1px solid rgba(201,168,76,0.15);
+  background: linear-gradient(180deg, #080c18, #0d1626);
+  padding: 10px 12px; text-align: center;
+  border-bottom: 1px solid rgba(201,168,76,0.12);
   position: relative;
   &::before {
     content: ''; position: absolute; inset: 0;
@@ -17,26 +17,24 @@ ion-content {
 }
 
 .clock-time {
-  font-family: 'Cinzel', serif; font-size: 44px; font-weight: 600;
-  color: #f0e8d5; letter-spacing: 2px;
-  text-shadow: 0 0 40px rgba(201,168,76,0.25);
+  font-family: 'Cinzel', serif; font-size: 26px; font-weight: 600;
+  color: #f0e8d5; letter-spacing: 1px;
 }
 
-.clock-date { font-size: 13px; color: #9aafcc; margin-top: 6px; }
-.clock-hijri { font-size: 13px; color: #c9a84c; margin-top: 4px; }
-.clock-location { font-size: 12px; color: #506480; margin-top: 4px; }
+.clock-date { font-size: 8px; color: #9aafcc; margin-top: 2px; }
+.clock-hijri { font-size: 8px; color: #c9a84c; margin-top: 2px; }
+.clock-location { font-size: 7px; color: #506480; margin-top: 2px; }
 
 .next-prayer-card {
   display: flex; align-items: center; justify-content: space-between;
-  background: linear-gradient(135deg, rgba(201,168,76,0.12), rgba(201,168,76,0.05));
-  border: 1px solid rgba(201,168,76,0.3); border-radius: 14px;
-  padding: 14px 18px; margin-top: 18px;
-  .np-label { font-size: 10px; color: #9aafcc; text-transform: uppercase; letter-spacing: 1px; }
-  .np-name { font-family: 'Cinzel', serif; font-size: 18px; color: #c9a84c; font-weight: 600; }
-  .np-time { font-size: 16px; color: #f0e8d5; font-weight: 700; }
+  background: rgba(201,168,76,0.1); border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 8px; padding: 6px 10px; margin-top: 8px; margin-left: 10px; margin-right: 10px;
+  .np-label { font-size: 7px; color: #9aafcc; text-transform: uppercase; letter-spacing: 0.8px; }
+  .np-name { font-family: 'Cinzel', serif; font-size: 11px; color: #c9a84c; font-weight: 600; }
+  .np-time { font-size: 12px; color: #f0e8d5; font-weight: 700; }
   .np-left {
-    font-size: 12px; color: #25c79a; background: rgba(37,199,154,0.1);
-    border: 1px solid rgba(37,199,154,0.3); border-radius: 20px; padding: 3px 10px;
+    font-size: 7px; color: #25c79a; background: rgba(37,199,154,0.1);
+    border: 1px solid rgba(37,199,154,0.3); border-radius: 8px; padding: 2px 6px;
   }
 }
 
@@ -73,26 +71,26 @@ ion-content {
 .loading-center { display: flex; flex-direction: column; align-items: center; padding: 40px; gap: 16px; }
 .loading-center p { color: #9aafcc; font-size: 14px; }
 
-.prayer-times-list { padding: 0 16px; display: flex; flex-direction: column; gap: 8px; }
+.prayer-times-list { padding: 6px 10px; display: flex; flex-direction: column; gap: 4px; }
 
 .prayer-row {
   display: flex; align-items: center; justify-content: space-between;
   background: linear-gradient(145deg, #162033, #1e2d45);
-  border: 1px solid rgba(201,168,76,0.1); border-radius: 14px; padding: 14px 16px;
+  border: 1px solid rgba(201,168,76,0.08); border-radius: 9px; padding: 7px 10px;
   transition: all 0.3s;
-  &.active { background: linear-gradient(135deg, rgba(201,168,76,0.15), rgba(201,168,76,0.05)); border-color: rgba(201,168,76,0.4); box-shadow: 0 0 20px rgba(201,168,76,0.1); }
+  &.active { background: rgba(201,168,76,0.12); border-color: rgba(201,168,76,0.35); }
   &.next { border-color: rgba(37,199,154,0.3); }
 }
 
-.prayer-row-left { display: flex; align-items: center; gap: 14px; }
-.prayer-icon { font-size: 24px; }
-.prayer-name-en { font-size: 16px; color: #f0e8d5; font-weight: 600; }
-.prayer-name-ar { font-family: 'Scheherazade New', serif; font-size: 16px; color: #9aafcc; direction: rtl; }
+.prayer-row-left { display: flex; align-items: center; gap: 7px; }
+.prayer-icon { font-size: 13px; }
+.prayer-name-en { font-size: 10px; color: #f0e8d5; font-weight: 600; }
+.prayer-name-ar { font-family: 'Amiri', serif; font-size: 10px; color: #9aafcc; direction: rtl; }
 .prayer-row-right { display: flex; align-items: center; gap: 8px; }
-.prayer-time-display { font-size: 18px; font-weight: 700; font-family: 'Cinzel', serif; }
+.prayer-time-display { font-size: 11px; font-weight: 700; font-family: 'Lato', sans-serif; }
 
 .prayer-badge {
-  font-size: 10px; padding: 3px 8px; border-radius: 20px; font-weight: 600; text-transform: uppercase;
+  font-size: 7px; padding: 1px 5px; border-radius: 8px; font-weight: 600; text-transform: uppercase;
   letter-spacing: 0.5px;
 }
 .active-badge { background: rgba(201,168,76,0.2); color: #c9a84c; border: 1px solid rgba(201,168,76,0.4); }

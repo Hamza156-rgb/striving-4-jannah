@@ -9,23 +9,23 @@ import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angu
     <ion-tabs>
       <ion-tab-bar slot="bottom">
         <ion-tab-button tab="home">
-          <ion-icon name="home-outline"></ion-icon>
+          <ion-icon name="home"></ion-icon>
           <ion-label>Home</ion-label>
         </ion-tab-button>
         <ion-tab-button tab="quran">
-          <ion-icon name="book-outline"></ion-icon>
+          <ion-icon name="book"></ion-icon>
           <ion-label>Quran</ion-label>
         </ion-tab-button>
         <ion-tab-button tab="prayer-times">
-          <ion-icon name="time-outline"></ion-icon>
+          <ion-icon name="time"></ion-icon>
           <ion-label>Prayers</ion-label>
         </ion-tab-button>
         <ion-tab-button tab="hadith">
-          <ion-icon name="library-outline"></ion-icon>
+          <ion-icon name="library"></ion-icon>
           <ion-label>Hadith</ion-label>
         </ion-tab-button>
         <ion-tab-button tab="settings">
-          <ion-icon name="settings-outline"></ion-icon>
+          <ion-icon name="cog"></ion-icon>
           <ion-label>Settings</ion-label>
         </ion-tab-button>
       </ion-tab-bar>
@@ -34,27 +34,23 @@ import { IonTabs, IonTabBar, IonTabButton, IonIcon, IonLabel } from '@ionic/angu
   styles: [`
     ion-tab-bar {
       --background: #0d1626;
-      border-top: 1px solid rgba(201,168,76,0.2);
-      height: 75px;
-      padding: 8px 0;
+      border-top: 1px solid rgba(201,168,76,0.18);
+      height: 50px;
+      padding: 4px 0 6px;
     }
     ion-tab-button {
       --color: #506480;
       --color-selected: #c9a84c;
-      --padding-bottom: 8px;
-      --padding-top: 8px;
-      --padding-start: 0;
-      --padding-end: 0;
+      padding: 2px 0;
     }
     ion-tab-button ion-icon {
-      font-size: 24px;
-      margin-bottom: 4px;
+      font-size: 14px;
+      margin-bottom: 2px;
     }
     ion-label { 
-      font-size: 12px; 
+      font-size: 7px; 
       font-family: 'Lato', sans-serif; 
-      font-weight: 500;
-      letter-spacing: 0.3px;
+      font-weight: 400;
     }
   `]
 })
