@@ -45,13 +45,20 @@ export class HadithPage implements OnInit {
 
   loadRandom(event?: any) {
     this.loadingRandom = true;
-    this.hadithService.getRandomHadith().subscribe(h => {
-      this.hadiths = [h, ...this.hadiths.slice(0, 9)];
-      this.loadingRandom = false;
-      if (event) event.target.complete();
-    }, () => {
-      this.loadingRandom = false;
-      if (event) event.target.complete();
+    this.hadithService.getRandomHadith().subscribe({
+      next: (h) => {
+        this.hadiths = [h, ...this.hadiths.slice(0, 9)];
+        this.loadingRandom = false;
+        if (event) {
+          event.target.complete();
+        }
+      },
+      error: () => {
+        this.loadingRandom = false;
+        if (event) {
+          event.target.complete();
+        }
+      }
     });
   }
 

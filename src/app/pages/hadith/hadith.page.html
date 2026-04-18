@@ -12,10 +12,6 @@
 </ion-header>
 
 <ion-content>
-  <ion-refresher slot="fixed" (ionRefresh)="loadRandom($event)">
-    <ion-refresher-content></ion-refresher-content>
-  </ion-refresher>
-
   <!-- Books Banner -->
   <div class="books-scroll">
     <div class="book-pill" *ngFor="let b of books">
